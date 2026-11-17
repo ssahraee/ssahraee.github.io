@@ -1,0 +1,186 @@
+/*******************************************************************************
+ * Site customizations: warm cream + dark blue palette and fonts.
+ * Loaded last from assets/css/main.scss, so these rules win over the theme.
+ ******************************************************************************/
+
+// Palette
+$cream: #f8f3e8;
+$cream-card: #fdfaf3;
+$cream-dark: #ede4d1;
+$navy: #1d3557;
+$navy-deep: #14233a;
+$navy-ink: #22304a;
+$slate: #6b7385;
+$sand: #e9c58f;
+
+:root {
+  // Fonts: the temporary picker on the homepage overrides these while choosing.
+  --font-heading: "Fraunces", Georgia, serif;
+  --font-body: "Nunito Sans", "Helvetica Neue", Arial, sans-serif;
+
+  --global-bg-color: #{$cream};
+  --global-card-bg-color: #{$cream-card};
+  --global-code-bg-color: rgba(29, 53, 87, 0.06);
+  --global-text-color: #{$navy-ink};
+  --global-text-color-light: #{$slate};
+  --global-theme-color: #{$navy};
+  --global-hover-color: #{$navy};
+  --global-hover-text-color: #{$cream};
+  --global-footer-bg-color: #{$navy};
+  --global-footer-text-color: #{$cream-dark};
+  --global-footer-link-color: #{$cream};
+  --global-divider-color: rgba(29, 53, 87, 0.14);
+  --global-highlight-color: #{$navy};
+}
+
+html[data-theme="dark"] {
+  --global-bg-color: #{$navy-deep};
+  --global-card-bg-color: #1a2b45;
+  --global-code-bg-color: rgba(248, 243, 232, 0.07);
+  --global-text-color: #{$cream-dark};
+  --global-text-color-light: #a7adbb;
+  --global-theme-color: #{$sand};
+  --global-hover-color: #{$sand};
+  --global-hover-text-color: #{$navy-deep};
+  --global-footer-bg-color: #0e1829;
+  --global-footer-text-color: #{$cream-dark};
+  --global-footer-link-color: #{$sand};
+  --global-divider-color: rgba(248, 243, 232, 0.12);
+  --global-highlight-color: #{$sand};
+}
+
+// Fonts
+
+html,
+body {
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.post-title,
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.profile .more-info {
+  font-family: var(--font-body);
+}
+
+// Softer details
+
+// Links stay the theme colour but get a soft sand underline so they
+// stand out from the navy body text.
+a {
+  text-decoration: underline;
+  text-decoration-color: rgba(233, 197, 143, 0.9);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+.navbar a,
+.toc a,
+footer a,
+.btn,
+.badge,
+.card a.card-link {
+  text-decoration: none;
+}
+
+.navbar .nav-item.active .nav-link {
+  font-weight: 700;
+}
+
+.navbar {
+  opacity: 1;
+}
+
+.profile {
+  img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(29, 53, 87, 0.12);
+  }
+
+  .more-info {
+    margin-top: 1rem;
+    text-align: center;
+
+    p {
+      display: block;
+    }
+  }
+}
+
+.card {
+  border: 1px solid var(--global-divider-color);
+  border-radius: 1rem;
+  box-shadow: 0 4px 18px rgba(29, 53, 87, 0.06) !important;
+}
+
+.badge,
+.btn {
+  border-radius: 999px !important;
+}
+
+.publications .btn {
+  border-color: var(--global-divider-color);
+}
+
+input,
+.form-control {
+  background-color: var(--global-card-bg-color) !important;
+  border-color: var(--global-divider-color) !important;
+  border-radius: 0.75rem !important;
+  color: var(--global-text-color) !important;
+}
+
+// CV page: embedded PDF with a download button above it
+
+.cv-download {
+  text-align: right;
+
+  .btn {
+    border: 1px solid var(--global-divider-color);
+    color: var(--global-theme-color);
+  }
+}
+
+.cv-pdf-page {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(29, 53, 87, 0.06);
+}
+
+// Keep the bio/research text in its own column beside the photo instead of
+// wrapping underneath it (lists would otherwise slip under the float).
+@media (min-width: 576px) {
+  .profile + .clearfix {
+    display: flow-root;
+  }
+
+  .profile.float-left {
+    margin-right: 2rem;
+  }
+
+  .profile.float-right {
+    margin-left: 2rem;
+  }
+}
