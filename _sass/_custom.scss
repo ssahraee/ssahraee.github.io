@@ -70,6 +70,12 @@ h6,
   letter-spacing: 0.01em;
 }
 
+// Page titles are lowercase in front matter (so the nav tabs stay
+// lowercase); capitalise just the first letter in the page heading.
+.post-title::first-letter {
+  text-transform: uppercase;
+}
+
 .profile .more-info {
   font-family: var(--font-body);
 }
