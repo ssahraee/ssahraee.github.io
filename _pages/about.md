@@ -6,6 +6,8 @@ subtitle: PhD student in cryptography at <a href='https://www.lirmm.fr/'>LIRMM</
 
 profile:
   align: left
+  image: prof_pic_initials.png # temporary profile picture
+  image_circular: true # crops the image to make it circular
   more_info: >
     <p>LIRMM</p>
     <p>Montpellier, France</p>

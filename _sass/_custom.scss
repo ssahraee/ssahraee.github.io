@@ -70,8 +70,7 @@ h6,
   letter-spacing: 0.01em;
 }
 
-// Page titles are lowercase in front matter (so the nav tabs stay
-// lowercase); capitalise just the first letter in the page heading.
+
 .post-title::first-letter {
   text-transform: uppercase;
 }
@@ -114,6 +113,9 @@ footer a,
 
 .profile {
   img {
+    display: block;
+    width: 80%; 
+    margin: 0 auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 50%;
@@ -180,6 +182,10 @@ input,
 @media (min-width: 576px) {
   .profile + .clearfix {
     display: flow-root;
+  }
+
+  .profile {
+    width: 25%; // theme default is 30%
   }
 
   .profile.float-left {
